@@ -1,0 +1,63 @@
+<%- include('includes/head.ejs') %>
+<style>
+     .container{
+            margin-top: 15px;
+            margin-left: 50px;
+            border: lightgray solid 2px;
+            box-shadow: 2px 2px 5px lightgray;
+            width : 1400px;
+        }
+        .outline{
+            border: 2px solid green;
+            height: 40px;
+            margin-bottom: 20px;
+            width: 1350px;
+            margin-left: 1.5em;
+        }
+        h3,p{
+            margin: 0;
+            padding: 0;
+        }
+        .heading{
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-family: sans-serif;
+            display: inline-block;
+        }
+        .content{
+            margin-top: 8px;
+            margin-left: 15px;
+            font-family: sans-serif;
+            font-size: 20px;
+            display: inline-block;
+        }
+</style>
+</head>
+<body>
+   <%- include('includes/navigation.ejs') %>
+
+   <main>
+       <% if (orders.length <= 0) { %>
+           <h1>Nothing There !</h1>
+           <% } else { %>
+
+               <% orders.forEach(order => { %>
+
+                <div class="container">
+                    <h3 class="heading">Order - #<%= order._id %> </h3>&nbsp; - <a href="/invoice/<%= order._id %>">Invoice</a>
+                    <% order.products.forEach(p => { %>
+                    <div class="outline">
+                        <p class="content"><%= p.product.title %> (<%= p.quantity %>)</p>
+                    </div>
+                    <% }); %>
+                </div> 
+                   
+               <% }); %>
+
+           <% } %>
+   </main>
+
+  
+</body>
+</html>

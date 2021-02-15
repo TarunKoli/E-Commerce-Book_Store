@@ -1,0 +1,18 @@
+<header>
+    <% var isAuthenticated; %>
+    <div class="container1">
+        <a class="link" href="/">Shop</a>
+        <% if (isAuthenticated) { %>
+            <a class="link" href="/addProduct">AddProduct</a>
+            <a class="link" href="/cart">Cart</a>
+            <a class="link" href="/orders">Orders</a>
+            <a class="link" href="/products">Products</a>
+            <a class="link" href="/adminProducts">MadeByMe</a>
+            <a class="link" href="/logout" style="margin-left: 500px;">LogOut</a>
+        <% } else { %>
+            <a class="link" href="/login">Login</a>
+            <a class="link" href="/signup">SignUp</a>
+        <% } %>
+          
+    </div>
+</header>

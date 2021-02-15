@@ -1,0 +1,65 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/shop.css">
+<style>
+   .btn2{
+      margin-left: 10px;
+      width: 90px;
+   }
+   .btn3{
+      margin-left: 3px;
+      background-color: orangered;
+      border-radius: 2px;
+      border: 2px solid orangered;
+      font-weight: bold;
+      font-size: 18px;
+   }
+   .btn4{
+      margin-left: 650px;
+      width : 190px;
+      height: 50px;
+      border: 2px solid orangered;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 20px;
+      font-family: sans-serif;
+   }
+   .btn4:hover{
+      background-color: orangered;
+      color: white;
+   }
+</style>
+</head>
+<body>
+   <%- include('includes/navigation.ejs') %>
+
+   <% if (prods.length > 0) { %>
+      <% for (let product of prods) { %>
+         
+         <div class="container3">
+            <h3 class="set"><%= product.productId.title %></h3>
+            <img src="/<%=product.productId.image%>" alt="Book Image" height="180px" width="299px" class="set">
+            <h3 class="set" style="margin: 0px;" >$<%= product.productId.price %></h3><br>
+            <div class="desc"><%= product.productId.description %></div>
+            <form action="/details/<%=product.productId._id%>" method="GET" style="display: inline-block;">
+               <button type="submit" class="btn2">Details</button>
+            </form>
+            <form action="/cart-delete" method="POST" style="display: inline-block;">
+               <input type="hidden" name="productId" value="<%=product.productId._id%>">
+               <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+               <button type="submit" class="btn2">Delete</button>
+            </form>
+            <button class="btn3">+</button> <span><%=product.quantity%></span>
+            <button class="btn3">-</button>
+         </div>
+
+      <% } %>
+         <hr>
+         <form action="/checkout" method="GET">
+            <button type="submit" class="btn4">Order Now</button>
+         </form>
+   <% } else { %>
+      <h1>No Products Found</h1>
+   <% } %>
+
+</body>
+</html>
