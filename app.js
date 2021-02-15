@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const session = require('express-session');
 const mongoDbStore = require('connect-mongodb-session')(session);
-const MONGODB_URI = 'mongodb+srv://Aman456:8v0FzKTqFRHGfVF8@cluster0.lbhjb.mongodb.net/Practice?retryWrites=true&w=majority';
+const MONGODB_URI = 'YOUR_MONGO_URI';
 const shopRoute = require('./routes/Shop');
 const adminRoute = require('./routes/Admin');
 const authRoute = require('./routes/Auth')

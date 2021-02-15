@@ -1,6 +1,6 @@
 const path = require('path');
 const Product = require('../Models/products');
-const stripe = require('stripe')('sk_test_51HIITHHd7UAG6u9hSw41DwHrPbKkFH2K76GeOANJWsTZacpBpvDASy1obPn1v1W7jYUQxWZK2dPyJOD7tYhrOgMl00u5hzy8Tr');
+const stripe = require('stripe')('YOUR_SECRET_KEY');
 const Orders = require('../Models/orders');
 const fs = require('fs');
 const PDFDocument = require('pdfkit');

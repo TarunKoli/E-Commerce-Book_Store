@@ -7,8 +7,8 @@ const { validationResult } = require('express-validator/check');
 const transporter = nodemailer.createTransport({
     service : 'gmail',
     auth : {
-        user : 'amankumar8348@gmail.com',
-        pass : 'tarun@987'
+        user : 'abc@gmail.com',
+        pass : 'XXXXXX'
     }
 });
 
@@ -156,7 +156,7 @@ exports.postSignUp = (req,res,next) => {
              res.redirect('/login');
              transporter.sendMail({
                  to : email,
-                 from : 'amankumar8348@gmail.com',
+                 from : 'abc@gmail.com',
                  subject : 'Welcome !! To Shop',
                  text : `Welcome , we are extremely happy to have u on this webiste !
                             you Succesfully created your account on Shop.`
@@ -216,7 +216,7 @@ exports.postReset = (req,res,next) => {
             res.redirect('/');
             transporter.sendMail({
                 to : req.body.email,
-                from : 'amankumar8348@gmail.com',
+                from : 'abc@gmail.com',
                 subject : 'Resetting PassWord',
                 html : `
                     <p>You requested a password reset</p>
